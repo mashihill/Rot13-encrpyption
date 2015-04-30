@@ -6,11 +6,14 @@ def escape_html(s):
 
 # Modified from http://stackoverflow.com/questions/14424500/text-shift-function-in-python
 strs='abcdefghijklmnopqrstuvwxyz'  # use a string like this, instead of ord() 
+strsU='ABCDEFGHIJKLMNOPQRSTUVWXYZ'  # use a string like this, instead of ord() 
 def shifttext(inp):
     data=[]
     for i in inp:  #  iterate over the text not some list
         if i.strip() and i in strs:  # if the char is not a space ""  
             data.append(strs[(strs.index(i) + 13) % 26])    
+        elif i.strip() and i in strsU:  # if the char is not a space ""  
+            data.append(strsU[(strsU.index(i) + 13) % 26])    
         else:
             data.append(i)  #if space the simply append it to data
     output = ''.join(data)
